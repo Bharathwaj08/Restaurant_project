@@ -1,11 +1,9 @@
-import java.time.LocalDateTime;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+
 
 public class Restaurant {
     private String name;
@@ -23,7 +21,7 @@ public class Restaurant {
 
     public boolean isRestaurantOpen() {
 
-        //code to check if restaurant is open
+
         LocalTime now = LocalTime.now();
         if((now.isAfter(openingTime)) && now.isBefore(closingTime)) {
             return true;

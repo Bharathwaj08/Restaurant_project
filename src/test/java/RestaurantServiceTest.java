@@ -19,7 +19,7 @@ class RestaurantServiceTest {
         restaurant.addToMenu("Vegetable lasagne", 269);
     }
 
-    //>>>>>>>>>>>>>>>>>>>>>>SEARCHING<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
     @Test
     public void searching_for_existing_restaurant_should_return_expected_restaurant_object() throws restaurantNotFoundException {
         //WRITE UNIT TEST CASE HERE
@@ -33,7 +33,7 @@ class RestaurantServiceTest {
         //WRITE UNIT TEST CASE HERE
         assertThrows(restaurantNotFoundException.class,()->service.findRestaurantByName("Sarvana Bhavan"));
     }
-    //<<<<<<<<<<<<<<<<<<<<SEARCHING>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 
 
 
