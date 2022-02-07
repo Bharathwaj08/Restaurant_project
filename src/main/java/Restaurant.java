@@ -35,7 +35,7 @@ public class Restaurant {
 
     public List<Item> getMenu() {
 
-        //code to get menu
+
         return Collections.unmodifiableList(menu);
     }
 

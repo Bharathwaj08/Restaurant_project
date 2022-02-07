@@ -8,15 +8,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class RestaurantServiceTest {
 
     RestaurantService service = new RestaurantService();
-    Restaurant restaurant;
-    //REFACTOR ALL THE REPEATED LINES OF CODE
+    Restaurant restservice;
+
     @BeforeEach
     public void setup() {
         LocalTime openingTime = LocalTime.parse("10:30:00");
         LocalTime closingTime = LocalTime.parse("22:00:00");
-        restaurant = service.addRestaurant("Amelie's cafe","Chennai",openingTime,closingTime);
-        restaurant.addToMenu("Sweet corn soup",119);
-        restaurant.addToMenu("Vegetable lasagne", 269);
+        restservice = service.addRestaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restservice.addToMenu("Sweet corn soup",119);
+        restservice.addToMenu("Vegetable lasagne", 269);
     }
 
 
@@ -30,7 +30,7 @@ class RestaurantServiceTest {
 
         @Test
     public void searching_for_non_existing_restaurant_should_throw_exception() throws restaurantNotFoundException {
-        //WRITE UNIT TEST CASE HERE
+
         assertThrows(restaurantNotFoundException.class,()->service.findRestaurantByName("Sarvana Bhavan"));
     }
 
@@ -38,14 +38,14 @@ class RestaurantServiceTest {
 
 
 
-    //>>>>>>>>>>>>>>>>>>>>>>ADMIN: ADDING & REMOVING RESTAURANTS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
     @Test
     public void remove_restaurant_should_reduce_list_of_restaurants_size_by_1() throws restaurantNotFoundException {
 
 
-        int initialNumberOfRestaurants = service.getRestaurants().size();
+        int initialNoRestaurants = service.getRestaurants().size();
         service.removeRestaurant("Amelie's cafe");
-        assertEquals(initialNumberOfRestaurants-1, service.getRestaurants().size());
+        assertEquals(initialNoRestaurants-1, service.getRestaurants().size());
     }
 
     @Test
@@ -59,9 +59,9 @@ class RestaurantServiceTest {
     public void add_restaurant_should_increase_list_of_restaurants_size_by_1(){
 
 
-        int initialNumberOfRestaurants = service.getRestaurants().size();
+        int initialNoOfRestaurants = service.getRestaurants().size();
         service.addRestaurant("Pumpkin Tales","Chennai",LocalTime.parse("12:00:00"),LocalTime.parse("23:00:00"));
-        assertEquals(initialNumberOfRestaurants + 1,service.getRestaurants().size());
+        assertEquals(initialNoOfRestaurants + 1,service.getRestaurants().size());
     }
-    //<<<<<<<<<<<<<<<<<<<<ADMIN: ADDING & REMOVING RESTAURANTS>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 }
